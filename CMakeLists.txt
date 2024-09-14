@@ -1,5 +1,7 @@
-cmake_minimum_required(VERSION 3.1.0)
-
+cmake_minimum_required(VERSION 3.5)
+if(POLICY CMP0077)
+  cmake_policy(SET CMP0077 NEW)
+endif()
 project(QRencode VERSION 4.1.0 LANGUAGES C)
 
 option(WITH_TOOLS "Build utility tools"  YES )
@@ -20,7 +22,7 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 set(CMAKE_THREAD_PREFER_PTHREAD ON)
 find_package(Threads)
 find_package(PNG)
-find_package(Iconv)
+find_package(ICONV)
 
 if(CMAKE_USE_PTHREADS_INIT)
     add_definitions(-DHAVE_LIBPTHREAD=1)
